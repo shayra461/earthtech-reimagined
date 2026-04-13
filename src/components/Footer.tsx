@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import logo from "@/assets/logo.webp";
 
 const footerLinks = [
   { label: "Home", path: "/" },
@@ -16,14 +17,8 @@ const Footer = () => {
       <div className="container-full mx-auto px-6 md:px-10 pt-20 pb-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
           <div className="lg:col-span-1 space-y-5">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "var(--gradient-primary)" }}>
-                <span className="font-serif font-bold text-lg" style={{ color: "hsl(0,0%,100%)" }}>H</span>
-              </div>
-              <div className="flex flex-col leading-none">
-                <span className="font-serif font-semibold text-[15px]" style={{ color: "hsl(var(--section-dark-foreground))" }}>Healing Earth</span>
-                <span className="text-[10px] tracking-[0.2em] uppercase" style={{ color: "hsl(var(--section-dark-foreground) / 0.5)" }}>Technologies</span>
-              </div>
+            <div className="flex items-center">
+              <img src={logo} alt="Healing Earth Technologies" className="h-10 w-auto" />
             </div>
             <p className="text-sm leading-relaxed max-w-xs" style={{ color: "hsl(var(--section-dark-foreground) / 0.6)" }}>
               Revolutionizing agriculture with the Ultimate Food System™ — sustainable, organic, and efficient food production for a better future.
