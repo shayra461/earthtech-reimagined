@@ -40,18 +40,8 @@ const Navbar = () => {
       style={{ boxShadow: solidNav ? "var(--shadow-sm)" : "none" }}
     >
       <nav className="container-full mx-auto flex items-center justify-between px-6 md:px-10 py-4">
-        <Link to="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: "var(--gradient-primary)" }}>
-            <span className="text-primary-foreground font-serif font-bold text-lg">H</span>
-          </div>
-          <div className="flex flex-col leading-none">
-            <span className={`font-serif font-semibold text-[15px] tracking-tight transition-colors ${solidNav ? "text-foreground" : "text-primary-foreground"}`}>
-              Healing Earth
-            </span>
-            <span className={`text-[10px] tracking-[0.2em] uppercase transition-colors ${solidNav ? "text-muted-foreground" : "text-primary-foreground/60"}`}>
-              Technologies
-            </span>
-          </div>
+        <Link to="/" className="flex items-center group">
+          <img src={logo} alt="Healing Earth Technologies" className="h-10 w-auto" />
         </Link>
 
         <div className="hidden lg:flex items-center gap-1">
