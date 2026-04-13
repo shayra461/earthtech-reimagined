@@ -17,6 +17,10 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
 
+  // Only the home page has a dark hero; all other pages need solid navbar immediately
+  const isHome = location.pathname === "/";
+  const solidNav = !isHome || scrolled;
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener("scroll", onScroll, { passive: true });
