@@ -41,7 +41,7 @@ const Navbar = () => {
     >
       <nav className="container-full mx-auto flex items-center justify-between px-6 md:px-10 py-4">
         <Link to="/" className="flex items-center group">
-          <img src={logo} alt="Healing Earth Technologies" className="h-10 w-auto" />
+          <img src={logo} alt="Healing Earth Technologies" className="h-16 w-auto" />
         </Link>
 
         <div className="hidden lg:flex items-center gap-1">
