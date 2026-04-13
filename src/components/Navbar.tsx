@@ -17,6 +17,10 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
 
+  // Only the home page has a dark hero; all other pages need solid navbar immediately
+  const isHome = location.pathname === "/";
+  const solidNav = !isHome || scrolled;
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -28,11 +32,11 @@ const Navbar = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
+        solidNav
           ? "bg-card/95 backdrop-blur-2xl border-b border-border/40"
           : "bg-transparent"
       }`}
-      style={{ boxShadow: scrolled ? "var(--shadow-sm)" : "none" }}
+      style={{ boxShadow: solidNav ? "var(--shadow-sm)" : "none" }}
     >
       <nav className="container-full mx-auto flex items-center justify-between px-6 md:px-10 py-4">
         <Link to="/" className="flex items-center gap-3 group">
@@ -40,10 +44,10 @@ const Navbar = () => {
             <span className="text-primary-foreground font-serif font-bold text-lg">H</span>
           </div>
           <div className="flex flex-col leading-none">
-            <span className={`font-serif font-semibold text-[15px] tracking-tight transition-colors ${scrolled ? "text-foreground" : "text-primary-foreground"}`}>
+            <span className={`font-serif font-semibold text-[15px] tracking-tight transition-colors ${solidNav ? "text-foreground" : "text-primary-foreground"}`}>
               Healing Earth
             </span>
-            <span className={`text-[10px] tracking-[0.2em] uppercase transition-colors ${scrolled ? "text-muted-foreground" : "text-primary-foreground/60"}`}>
+            <span className={`text-[10px] tracking-[0.2em] uppercase transition-colors ${solidNav ? "text-muted-foreground" : "text-primary-foreground/60"}`}>
               Technologies
             </span>
           </div>
@@ -56,8 +60,8 @@ const Navbar = () => {
               to={link.path}
               className={`px-4 py-2 rounded-lg text-[13px] font-medium transition-all duration-200 ${
                 location.pathname === link.path
-                  ? scrolled ? "text-primary bg-primary/5" : "text-primary-foreground bg-primary-foreground/10"
-                  : scrolled ? "text-muted-foreground hover:text-foreground hover:bg-muted/50" : "text-primary-foreground/70 hover:text-primary-foreground hover:bg-primary-foreground/10"
+                  ? solidNav ? "text-primary bg-primary/5" : "text-primary-foreground bg-primary-foreground/10"
+                  : solidNav ? "text-muted-foreground hover:text-foreground hover:bg-muted/50" : "text-primary-foreground/70 hover:text-primary-foreground hover:bg-primary-foreground/10"
               }`}
             >
               {link.label}
@@ -67,7 +71,7 @@ const Navbar = () => {
 
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className={`lg:hidden p-2 rounded-lg transition-colors ${scrolled ? "text-foreground" : "text-primary-foreground"}`}
+          className={`lg:hidden p-2 rounded-lg transition-colors ${solidNav ? "text-foreground" : "text-primary-foreground"}`}
           aria-label="Toggle menu"
         >
           {mobileOpen ? <X size={22} /> : <Menu size={22} />}
